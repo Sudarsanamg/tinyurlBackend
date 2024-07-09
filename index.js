@@ -3,7 +3,7 @@ const app = express()
 const fs = require('fs');
 
 require('dotenv').config()
-const port = process.env.PORT
+const port = 8000
 const bodyParser = require('body-parser');
 const cors=require('cors')
 const { Pool } = require('pg');
@@ -29,7 +29,7 @@ const pool = new Pool({
   function generateRandomAlphaNumeric() {
     const length = 6;
     let result = '';
-    const characters = process.env.characters;
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
