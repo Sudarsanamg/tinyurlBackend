@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const fs = require('fs');
 
 require('dotenv').config()
 const port = process.env.PORT
@@ -11,12 +12,18 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json());
 
+
+
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'urlshortner',
-    password: '762004',
+    user: 'sudarsanam',
+    host: 'tinyurl.postgres.database.azure.com',
+    database: 'tinyurl',
+    password: '@7JuN2004',
     port: 5432,
+    ssl: {
+        rejectUnauthorized: false
+    }
   });
 
   function generateRandomAlphaNumeric() {
